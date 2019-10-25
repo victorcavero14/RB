@@ -1,0 +1,127 @@
+import threading
+
+def main():
+	
+	dType.SetIODO(api, 18, 0, 0) #Compresor encendido
+	dType.SetIODO(api, 17, 0, 0) #Pinza abierta
+
+	#Colocar en posicion 0
+	cero = (0, 0, 0, 0)
+
+	A = (293, 111, 171, 0)
+	B = (293, 48, 171, 0)
+	C = (293, 111, 171, 30)
+	D = (293, 111, 171, 45)
+	lock = threading.lock()
+        
+	while true:
+
+		if dType.GetIODI(api, 1)[0] == 0: #A
+			#contenido del hilo
+			t1 = threading.Thread(name="Tarea", target = taskMove, args(A,C))
+			lock.acquire()
+			t1.start()
+			t1.join()
+			lock.release()
+		
+		elif dType.GetIODI(api, 2)[0] == 0: #B
+			#contenido del hilo
+			t2 = threading.Thread(name="Tarea", target = taskMove, args(B,D))
+			lock.acquire()
+			t2.start()
+			t2.join()
+			lock.release()
+
+
+
+def taskMove(O, D):
+	
+	waitTime = 3000 #3 segundos en los waits
+
+	#velocidad
+	speed = 50.0
+	accl = 1.0
+	isQueued = 1
+	dType.SetPTPCommonParams(api, speed, accl, isQueued)
+            
+	#Mover hasta encima del origen
+	cmd = 0
+	x = O[0]
+	y = O[1]
+	z = O[2]+50
+	r = O[3]
+	dType.SetPTPCmd(api, cmd, x, y, z, r, isQueued)
+
+     
+	dType.SetWAITCmd(api, waitTime)
+
+	#Mas lentito
+	speed = 10
+	dType.SetPTPCommonParams(api, speed, accl, isQueued)
+            
+	#Bajar a origen
+	ptpMode = 0
+	x = O[0]
+	y = O[1]
+	z = O[2]
+	r = O[3]
+	isQueued = 1
+	dType.SetPTPCmd(api, ptpMode, x, y, z, r, isQueued)
+
+	#esperar
+	
+	dType.SetWAITCmd(api, waitTime)
+
+	#cerrar pinza
+	dType.SetIODO(api, 17, 1, 1) #1 cierra
+
+	#levantar
+	dType.SetPTPCommonParams(api, 50, accl, isQueued)
+	dType.SetPTPCmd(api, 0, O[0], O[1], O[2], O[3], isQueued)
+	#esperar
+	dType.SetWAITCmd(api, waitTime)
+	
+
+	#rapidito
+	speed = 50.0
+	accl = 1.0
+	isQueued = 1
+	dType.SetPTPCommonParams(api, speed, accl, isQueued)
+            
+	#Mover hasta encima de destino
+	x = D[0]
+	y = D[1]
+	z = D[2] +50
+	r = D[3] 
+	dType.SetPTPCmd(api, cmd, x, y, z, r, isQueued)
+            
+     #lentito
+	speed = 10.0
+	accl = 1
+	isQueued = 1
+	dType.SetPTPCommonParams(api, speed, accl, isQueued)
+
+                 
+	#Bajar a destino :)
+	cmd = 1
+	x = D[0]
+	y = D[1]
+	z = D[2]
+	r = D[3]
+	isQueued = 1
+	dType.SetPTPCmd(api, cmd, x, y, z, isQueued)
+
+	#esperar
+	dType.SetWAITCmd(api, waitTime)
+	#abrir pinza
+	dType.SetIODO(api, 17, 0, 1) #0 abre
+  
+  	#rapidito
+	speed = 50.0
+	accl = 20.0
+	isQueued = 1
+	dType.SetPTPCommonParams(api, speed, accl, isQueued)       
+	#Vuelta al origen
+	dType.SetPTPCmd(api, cmd, O[0], O[1], O[2],O[3], isQueued)
+            
+main()

@@ -1,0 +1,21 @@
+8 pts
+	15 - Robots desactivadores de bombas. Este es el trabajo que hemos realizado mi compañero y yo. (Quizás no nos podamos
+	autopuntuar así que añado otro).
+	10 - Silla Robotizadas. Me parece de los trabajos más completos ya que consta de muchas fotos y vídeos explicativos. 
+	Además expresa con claridad cuales son las partes del robot SENA (sus sensores y todo la logística relacionada)
+
+5 pts
+	
+	13 - LEGO MindStorms. Los Mindstorms de LEGO son un ejemplo curioso de las aplicaciones de los robots, ya que te permiten
+	una gran libertad y construirlos según tus necesidades. El trabajo esta bastante completo aunque quizás faltaría añadir
+	algo acerca del tipo de las articulaciones y mayor información de los componentes.
+
+3 pts
+	17 - Robots Humanoides. Me parece una forma original de exponer las caracteristicas de los robots humanoides. Quizás faltaría 
+	añadir algún vídeo.
+
+2 pts 
+	08 - DaVinci. Falta información acerca del brazo robótico cirugano, por ejemplo el tipo de articulaciones que tiene.
+
+1 pto
+	18. Robot industrial KUKA. Bonita estética de la web con gran cantidad de vídeos y fotos, pero quizás faltaría añadir más información.
