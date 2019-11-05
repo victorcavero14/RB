@@ -1,0 +1,41 @@
+.menu {
+  position: fixed;
+  top: 0;
+  margin: auto;
+  left: 0;
+  right: 0;
+  width: 100%;
+}
+
+.menu ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+.menu li {
+  float: left;
+}
+
+.menu li a {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 140%;
+}
+
+.menu li a:hover {
+  background-color: #111;
+}
+
+h1 {
+  font-size: 120%;
+}
+
+p {
+  font-size: 120%;
+}
