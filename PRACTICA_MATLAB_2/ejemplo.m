@@ -38,12 +38,14 @@ By=[p0(2), 0, 0, pF(2), 0, 0, 0, 0, 0, pP(2)]';
 
 % RESOLVER LAS ECUACIONES:
 
-% Ecuación:  M*pX=Bx
+M
+
+% Ecuaciï¿½n:  M*pX=Bx
 pX=M\Bx;
-% Ecuación:  M*pY=By
+% Ecuaciï¿½n:  M*pY=By
 pY=M\By;
 
-% SOLUCIÓN PARA CADA VARIABLE (X,Y)
+% SOLUCIï¿½N PARA CADA VARIABLE (X,Y)
 
 % Coeficientes de X e Y para las curvas 1 y 2:
 pX1=pX(1:5)
@@ -53,13 +55,13 @@ pY2=pY(6:10)
 
 % ----------------------------------------------------
 
-% CÁLCULO DE LOS PUNTOS (DIBUJO):
+% Cï¿½LCULO DE LOS PUNTOS (DIBUJO):
 
-% Cálculo de la curva, la velocidad y la aceleración:
+% Cï¿½lculo de la curva, la velocidad y la aceleraciï¿½n:
 t1=t0:0.01:tP;
 t2=tP:0.01:tF;
 
-% Posición:
+% Posiciï¿½n:
 x1=polyval(pX1,t1);
 y1=polyval(pY1,t1);
 x2=polyval(pX2,t2);
@@ -75,7 +77,7 @@ dy1=polyval(dpY1,t1);
 dx2=polyval(dpX2,t2);
 dy2=polyval(dpY2,t2);
 
-% Aceleración:
+% Aceleraciï¿½n:
 ddpX1=polyder(dpX1);
 ddpY1=polyder(dpY1);
 ddpX2=polyder(dpX2);
@@ -85,7 +87,7 @@ ddy1=polyval(ddpY1,t1);
 ddx2=polyval(ddpX2,t2);
 ddy2=polyval(ddpY2,t2);
 
-% Dibujo de la solución:
+% Dibujo de la soluciï¿½n:
 
 figure
 plot(x1,y1,'r',x2,y2,'b',p0(1),p0(2),'o',pP(1),pP(2),'x',pF(1),pF(2),'o')
