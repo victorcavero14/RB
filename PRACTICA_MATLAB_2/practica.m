@@ -1,9 +1,13 @@
- % DATOS DE ENTRADA:
+% Alumnos:
+% Víctor Manuel Cavero Gracia
+% Pablo Saro Buendía
+
+% DATOS DE ENTRADA:
 
 % Puntos objetivo:
 p0=[5,1]; % P Inicial
-pP=[10,4];% pP=[11,6]; P Despegue
-pI=[13,9];% P Asentamiento
+pP=[8,3];% pP=[11,6]; P Despegue
+pI=[11,10];% P Asentamiento
 pF=[10,12];% P Final
 
 % tiempo para cada segmento:
@@ -22,31 +26,6 @@ tF=t0+t1+t2+t3;
 
 % MATRIZ CON LAS ECUACIONES QUE HAY QUE RESOLVER:
 
-% Se resuelve la matriz general mostrada en el ejemplo:
-
-%M=[    t0^3,   t0^2,   t0,  1,        0,      0,     0,  0
-%      3*t0^2,   2*t0,   1,  0,        0,      0,     0,  0
-%      3*2*t0,      2,   0,  0,        0,      0,     0,  0
-%           0,      0,   0,  0,     tF^3,   tF^2,    tF,  1
-%           0,      0,   0,  0,   3*tF^2,   2*tF,     1,  0
-%           0,      0,   0,  0,   3*2*tF,      2,     0,  0
-%        tP^3,   tP^2,  tP,  1,        0,      0,     0,  0
-%        tI^3,   tI^2,  tI,  1,        0,      0,     0,  0];
-    
-%M2=[     t0^5,    t0^4,    t0^3,    t0^2,      t0,       1,       0,       0,       0,       0,       0,       0
-%       5*t0^4,  4*t0^3,  3*t0^2,    2*t0,       1,       0,       0,       0,       0,       0,       0,       0
-%      20*t0^3, 12*t0^2,    6*t0,       2,       0,       0,       0,       0,       0,       0,       0,       0
-%            0,       0,       0,       0,       0,       0,    tF^5,    tF^4,    tF^3,    tF^2,      tF,       1
-%            0,       0,       0,       0,       0,       0,  5*tF^4,  4*tF^3,  3*tF^2,    2*tF,       1,       0
-%            0,       0,       0,       0,       0,       0, 20*tF^3, 12*tF^2,    6*tF,       2,       0,       0
-%         tP^5,    tP^4,    tP^3,    tP^2,      tP,       1,   -tP^5,   -tP^4,   -tP^3,   -tP^2,     -tP,      -1
-%       5*tP^4,  4*tP^3,  3*tP^2,    2*tP,       1,       0, -5*tP^4, -4*tP^3, -3*tP^2,   -2*tP,      -1,       0
-%         tI^5,    tI^4,    tI^3,    tI^2,      tI,       1,   -tI^5,   -tI^4,   -tI^3,   -tI^2,     -tI,      -1
-%       5*tI^4,  4*tI^3,  3*tI^2,    2*tI,       1,       0, -5*tI^4, -4*tI^3, -3*tI^2,   -2*tI,      -1,       0
-%         tP^5,    tP^4,    tP^3,    tP^2,      tP,       1,       0,       0,       0,       0,       0,       0
-%         tI^5,    tI^4,    tI^3,    tI^2,      tI,       1,       0,       0,       0,       0,       0,       0];
-
-
 
 M=[      t0^3,    t0^2,      t0,       1,       0,       0,       0,       0,       0,       0,       0,       0,       0,       0
        3*t0^2,    2*t0,       1,       0,       0,       0,       0,       0,       0,       0,       0,       0,       0,       0
@@ -63,9 +42,6 @@ M=[      t0^3,    t0^2,      t0,       1,       0,       0,       0,       0,   
             0,       0,       0,       0,    tP^5,    tP^4,    tP^3,    tP^2,      tP,       1,       0,       0,       0,       0
             0,       0,       0,       0,       0,       0,       0,       0,       0,       0,    tI^3,    tI^2,      tI,       1];
 
-
-%Ax=[p0(1), 0, 0, pF(1), 0, 0, pP(1), pI(1)]';
-%Ay=[p0(2), 0, 0, pF(2), 0, 0, pP(2), pI(2)]';
 Bx=[p0(1), 0, 0, pF(1), 0, 0, 0, 0, 0, 0, 0, 0, pP(1), pI(1)]';
 By=[p0(2), 0, 0, pF(2), 0, 0, 0, 0, 0, 0, 0, 0, pP(2), pI(2)]';
 
@@ -141,9 +117,11 @@ ddy3=polyval(ddpY3,t3);
 
 figure
 plot(x1,y1,'r',x2,y2,'b',x3,y3,'r',p0(1),p0(2),'o',pP(1),pP(2),'x',pI(1),pI(2),'x',pF(1),pF(2),'o')
-%plot(x1,y1,'r',x2,y2,'b',p0(1),p0(2),'o',pP(1),pP(2),'x',pF(1),pF(2),'o')
 
 rectangle('Position', [5 , 5 , 4 , 3])
+rectangle('Position', [4.8,  4.8, 4.4 , 3.4]) %Engrosado del objeto para evitar que choque con el mismo
+% ya que hemos considerado el robot como un punto en el espacio cartesiano.
+
 title('Curvas 1 (rojo), 2 (azul) y 3 (rojo)');
 
 figure
