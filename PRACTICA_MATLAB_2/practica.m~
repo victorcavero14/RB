@@ -3,7 +3,7 @@
 % Puntos objetivo:
 p0=[5,1]; % P Inicial
 pP=[10,4];% pP=[11,6]; P Despegue
-pI=[13,9];% P Asentamiento
+pI=[11,8];% P Asentamiento
 pF=[10,12];% P Final
 
 % tiempo para cada segmento:
@@ -14,7 +14,7 @@ t3=2;
 % --------------------------------------------------------
 
 % Calculo de los tiempos intermedios:
-t0=0;
+t1=0;
 tP=t0+t1;
 tI=t0+t1+t2;
 tF=t0+t1+t2+t3;
@@ -143,7 +143,7 @@ figure
 plot(x1,y1,'r',x2,y2,'b',x3,y3,'r',p0(1),p0(2),'o',pP(1),pP(2),'x',pI(1),pI(2),'x',pF(1),pF(2),'o')
 %plot(x1,y1,'r',x2,y2,'b',p0(1),p0(2),'o',pP(1),pP(2),'x',pF(1),pF(2),'o')
 
-rectangle('Position', [5 , 5 , 4 , 3])
+rectangle('Position', [5 , 5 , 3 , 4])
 title('Curvas 1 (rojo), 2 (azul) y 3 (rojo)');
 
 figure
@@ -152,4 +152,4 @@ subplot(3,2,2), plot(t1,y1,'r',t2,y2,'b', t3, y3,'r'),title('y(t)')
 subplot(3,2,3), plot(t1,dx1,'r',t2,dx2,'b',t3,dx3,'r'),title('dx(t)')
 subplot(3,2,4), plot(t1,dy1,'r',t2,dy2,'b', t3,dy2,'r'),title('dy(t)')
 subplot(3,2,5), plot(t1,ddx1,'r',t2,ddx2,'b',t3,ddx3,'r'),title('ddx(t)')
-subplot(3,2,6), plot(t1,ddy1,'r',t2,ddy2,'b',t3,ddy3,'r'),title('ddy(t)')
+subplot(3,2,6), plot(t1,ddy1,'r',t2,ddy2,'b',t3,ddy3,'y'),title('ddy(t)')
