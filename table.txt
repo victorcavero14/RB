@@ -1,5 +1,5 @@
 
-Distancia => Potencia
+Distancia(cms) => Potencia (V)
 
 
 5	=>  705 
@@ -10,3 +10,16 @@ Distancia => Potencia
 	=> 
 	=> 
 	=> 
+
+Distancia(cms) => Potencia (V)
+
+
+5	=>  1
+10	=>   
+16	=>  220
+30	=>  130 
+	=> 
+	=> 
+	=> 
+	=> 
+
