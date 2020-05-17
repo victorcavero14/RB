@@ -1,3 +1,5 @@
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+
 # RB
 
 This is a subject of the computer science degree of UCM. ROBOTICS OPTATIVE.
