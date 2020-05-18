@@ -7,7 +7,7 @@ It includes stuff related to cinamatics, user interface development...
 
 ## General Description 
 
-The folders include the documents and requirements for each proyect in the subject.
+The folders include the documents and requirements for each project in the subject.
 
 ## Author
 
